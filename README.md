@@ -1,2 +1,2 @@
 # Calculadoras-de-JS
-Calculadora de operações báscias e de IMC
+Calculadora de operações básicas e de IMC.
