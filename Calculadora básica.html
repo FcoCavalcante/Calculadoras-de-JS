@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de operações básicas</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif; text-align: center; margin-top: 50px;}
+        input {margin: 5px;}
+        button {padding: 5px 10px}
+    </style>
+</head>
+<body>
+    <!-- Função (lógica) em JS -->
+    <script>
+        function calcular(operacao) {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            let resultado = '';
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultado = 'Por favor, insira números válidos.';
+            } else {
+                switch (operacao) {
+                    case '+': resultado = `Resultado: ${num1 + num2}`; break;
+                    case '-': resultado = `Resultado: ${num1 - num2}`; break;
+                    case '*': resultado = `Resultado: ${num1 * num2}`; break;
+                    case '/': 
+                        resultado = num2 !== 0 ? `Resultado: ${num1 / num2}` : 'Erro: Divisão por zero.';
+                        break;                        
+                }
+            }
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>    
+    
+    <h1>Calculadora Básica</h1>
+    <!-- Campos + atributos de entrada para o usuário digitar dois números. -->
+    <input type="number" id="num1" placeholder="Número 1">
+    <input type="number" id="num2" placeholder="Número 2">
+    <br>
+    <!-- Botões que executam uma operação quando clicados -->
+    <button onclick="calcular('+')">Soma</button>
+    <button onclick="calcular('-')">Subtração</button>
+    <button onclick="calcular('*')">Multiplicação</button>
+    <button onclick="calcular('/')">Divisão</button>
+    <!-- Exibição do resultado -->
+    <h2 id="resultado">Resultado</h2>
+</body>
+</html>
